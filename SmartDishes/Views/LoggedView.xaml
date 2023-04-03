@@ -1,0 +1,219 @@
+﻿<Window x:Class="SmartDishes.Views.LoggedView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartDishes.Views"
+        xmlns:viewModel="clr-namespace:SmartDishes.ViewModels"
+        mc:Ignorable="d"
+        Title="LoggedView"
+        Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
+
+    <Window.DataContext>
+        <viewModel:LoggedViewModel/>
+    </Window.DataContext>
+
+
+
+    <Border CornerRadius="35">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                <GradientStop Color="#180632" Offset="0"/>
+                <GradientStop Color="#5e09d5" Offset="0.5"/>
+                <GradientStop Color="#180632" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+
+            <TextBlock Text="Smart Dishes"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   FontSize="22">
+
+            </TextBlock>
+
+            <StackPanel Grid.Row="1">
+
+                <RadioButton Content="Home"
+                             Tag="Home"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="18"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Checked="MainRadioButtonClick"/>
+
+                <RadioButton Content="Menu"
+                             Tag="Menu"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="18"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Checked="MainRadioButtonClick"/>
+
+                <RadioButton 
+                    Name="BasketRadioButton" 
+                    Content="Koszyk"
+                             Tag="Basket"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="18"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Checked="MainRadioButtonClick"/>
+                <RadioButton 
+                    Name="MyOrdersRadioButton" 
+                    Content="My Order"
+                             Tag="Order"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="18"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Checked="MainRadioButtonClick"/>
+
+            </StackPanel>
+
+            <Grid Name="HomeGrid" Grid.Row="2" Grid.Column="2" Visibility="Hidden">
+
+            </Grid>
+
+            <Grid Name="MenuDishesGrid" Grid.Row="2" Grid.Column="2" Visibility="Hidden">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="67*"/>
+                    <ColumnDefinition Width="653*"/>
+                </Grid.ColumnDefinitions>
+
+                <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2" Style="{StaticResource MenuScrollStyle}">
+
+                    <StackPanel>
+
+                        <Border Style="{StaticResource MyBorderStyle}">
+                            <Label Content="Appetizer" Style="{StaticResource MyLabelStyle}"/>
+                        </Border>
+
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="200" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center">
+                            <StackPanel x:Name="AppetizerStackPanel"  
+                                        Style="{StaticResource MyStackPanelStyle}"
+                                        Grid.Row="1" 
+                                        Grid.Column="1">
+                            </StackPanel>
+
+                        </ScrollViewer>
+
+                        <!--Soup-->
+
+                        <Border Style="{StaticResource MyBorderStyle}" Margin="0, 10, 0, 0">
+                            <Label Content="Soup" Style="{StaticResource MyLabelStyle}"/>
+                        </Border>
+
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="200" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center">
+                            <StackPanel x:Name="SoupStackPanel"  
+                                        Style="{StaticResource MyStackPanelStyle}"
+                                        Grid.Row="1" 
+                                        Grid.Column="1">
+                            </StackPanel>
+
+                        </ScrollViewer>
+
+                        <!--Main Course-->
+
+                        <Border Style="{StaticResource MyBorderStyle}" Margin="0, 10, 0, 0">
+                            <Label Content="Main Course" Style="{StaticResource MyLabelStyle}"/>
+                        </Border>
+
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="200" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center">
+                            <StackPanel x:Name="MainCourseStackPanel"  
+                                        Style="{StaticResource MyStackPanelStyle}"
+                                        Grid.Row="1" 
+                                        Grid.Column="1">
+                            </StackPanel>
+
+                        </ScrollViewer>
+
+                        <!--Dessert-->
+
+                        <Border Style="{StaticResource MyBorderStyle}" Margin="0, 10, 0, 0">
+                            <Label Content="Dessert" Style="{StaticResource MyLabelStyle}"/>
+                        </Border>
+
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="200" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center">
+                            <StackPanel x:Name="DessertStackPanel"  
+                                        Style="{StaticResource MyStackPanelStyle}"
+                                        Grid.Row="1" 
+                                        Grid.Column="1">
+                            </StackPanel>
+
+                        </ScrollViewer>
+
+                        <!--Sides-->
+
+                        <Border Style="{StaticResource MyBorderStyle}" Margin="0, 10, 0, 0"> 
+                            <Label Content="Sides" Style="{StaticResource MyLabelStyle}"/>
+                        </Border>
+
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="200" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center">
+                            <StackPanel x:Name="SidesStackPanel"  
+                                        Style="{StaticResource MyStackPanelStyle}"
+                                        Grid.Row="1" 
+                                        Grid.Column="1">
+                            </StackPanel>
+
+                        </ScrollViewer>
+
+                        <!--Beverages-->
+
+                        <Border Style="{StaticResource MyBorderStyle}" Margin="0, 10, 0, 0">
+                            <Label Content="Beverages" Style="{StaticResource MyLabelStyle}"/>
+                        </Border>
+
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="200" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center">
+                            <StackPanel x:Name="BeveragesStackPanel"  
+                                        Style="{StaticResource MyStackPanelStyle}"
+                                        Grid.Row="1" 
+                                        Grid.Column="1">
+                            </StackPanel>
+
+                        </ScrollViewer>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+
+            <Grid Name="BasketGrid" Visibility="Hidden" Grid.Column="1" Grid.Row="1" Margin="0,0,0,194">
+
+                <DataGrid x:Name="BasketItemDataGrid"></DataGrid>
+
+                <Label Content="Wartość zamówienia: " Margin="0,353,591,-50"></Label>
+                <TextBox x:Name="CostTextBlock" Text="{Binding AllCost, Mode=TwoWay}" Margin="129,354,471,-51"/>
+                <Button Content="Order" Margin="129,409,472,-138"  Click="OrderButtonClick"/>
+                <Button Content="Delete From Basket" Margin="385,354,132,-83"  Click="DeleteFromBasket"/>
+
+            </Grid>
+
+            <Grid Name="MyOrderGrid" Visibility="Hidden" Grid.Column="1" Grid.Row="1" Margin="0,0,0,194">
+                <DataGrid x:Name="MyOrderDataGrid"></DataGrid>
+            </Grid>
+
+
+
+        </Grid>
+
+    </Border>
+</Window>

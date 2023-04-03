@@ -1,0 +1,88 @@
+﻿<Window x:Class="SmartDishes.Views.AdminView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartDishes.Views"
+        mc:Ignorable="d"
+        Title="AdminView"
+                 Height="760" Width="1280"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
+
+    <Border CornerRadius="35">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                <GradientStop Color="#180632" Offset="0"/>
+                <GradientStop Color="#5e09d5" Offset="0.5"/>
+                <GradientStop Color="#180632" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+
+            <TextBlock Text="Smart Dishes"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Foreground="White"
+                   FontSize="22">
+
+            </TextBlock>
+
+            <StackPanel Grid.Row="1">
+
+                <RadioButton Content="Members"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Tag="Member" 
+                             Checked="MenuRadioButtonClick"/>
+
+                <RadioButton Content="Add a meal"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Tag="AddMeal" 
+                             Checked="MenuRadioButtonClick"/>
+
+            </StackPanel>
+
+            <Grid Name ="MembersGrid" Visibility="Hidden" Grid.Row="1" Grid.Column="1" >
+                <DataGrid x:Name="MembersPersonDataGrid" Margin="60,10,60,151" Width="960"/>
+
+                <Button Content="Add user" Height="100" Width="200" Click="ButtonAddMemberClick" Margin="60,544,820,41"></Button>
+                <Button Content="Properties" Height="100" Width="200" Click="ButtonPropertiesMemberClick" Margin="362,544,518,41"></Button>
+                <Button Content="Delete" Height="100" Width="200" Click="ButtonDeleteMemberClick" Margin="675,544,205,41"/>
+            </Grid>
+
+            <Grid Name ="AddMealGrid" Visibility="Visible" Grid.Row="1" Grid.Column="1">
+                <DataGrid x:Name="DishesDataGrid" Margin="0,0,10,177"></DataGrid>
+
+                <Button Content="Add dish" Margin="35,551,877,40" Click="ButtonAddDishClick"></Button>
+                <Button Content="Edit dish" Margin="288,542,646,40" Click="ButtonPropertiesDishClick"></Button>
+                <Button Content="Delete dish" Margin="535,542,399,40" Click="ButtonDeleteDishClick"></Button>
+
+
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

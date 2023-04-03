@@ -1,0 +1,30 @@
+﻿<Window x:Class="SmartDishes.Views.AdminAddView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartDishes.Views"
+        mc:Ignorable="d"
+        Title="AdminAddView" Height="500" Width="327">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Login" Margin="12,19,235,49" Width="50" Height="30"></Label>
+        <Label Content="Password" Margin="10,34,0,35" HorizontalAlignment="Left" Width="76" Grid.Row="1"/>
+        <Label Content="Name" Margin="10,21,257,48" RenderTransformOrigin="0.6,0.001" Grid.Row="2"></Label>
+        <Label Content="Email" Margin="6,7,229,48" Grid.Row="3"/>
+        <TextBox Name="Login"  Text="{Binding Login, Mode=TwoWay}" Margin="127,23,20,48"/>
+        <TextBox Name="Password" Text="{Binding Password, Mode=TwoWay}" Margin="127,39,33,35" Grid.Row="1"/>
+        <TextBox Name="Name" Text="{Binding Name, Mode=TwoWay}" Margin="127,18,33,48" Grid.Row="2"/>
+        <TextBox Name="Email" Text="{Binding Email, Mode=TwoWay}" Margin="127,10,33,53" Grid.Row="3"/>
+        <Button Content="Add" Click="ButtonAddClick" Margin="22,6,191,56" Grid.Row="4" />
+        <Button Content="Cancel" Click="ButtonCancelClick" Margin="186,6,20,56" Grid.Row="4" />
+
+    </Grid>
+</Window>

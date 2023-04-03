@@ -1,0 +1,35 @@
+﻿<Window x:Class="SmartDishes.Views.DishAddView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartDishes.Views"
+        mc:Ignorable="d"
+        Title="DishAddView" Height="450" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Dish Id:" Width="50" Height="30" Margin="47,22,403,35"/>
+        <TextBox Name ="DishIdTextBox" Text="{Binding DishId, Mode=TwoWay}" Height="30" Margin="146,22,32,35" />
+        <Label Content="Dish name:" Height="30"  Grid.Row="1" Margin="48,0,382,57"/>
+        <TextBox Name ="DishNameTextBox" Text="{Binding DishName, Mode=TwoWay}" Height="30" Grid.Row="1" Margin="146,0,31,57"/>
+        <Label Content="Category Name:" Margin="48,48,350,3" Grid.Row="1"/>
+        <TextBox Name ="DishCategoryNameTextBox" Text="{Binding DishCategoryName, Mode=TwoWay}" Margin="150,48,27,12" Grid.Row="1"/>
+        <Label Content="Dish Price:" Margin="48,8,388,49" Grid.Row="2"/>
+        <TextBox Name ="DishPriceTextBox" Text="{Binding DishPrice, Mode=TwoWay}" Margin="150,9,27,50" Grid.Row="2"/>
+        <Label Content="Dish Amount:" Margin="48,52,366,6" Grid.Row="2"/>
+        <TextBox Name ="DishAmountTextBox" Text="{Binding DishAmount, Mode=TwoWay}" Margin="150,46,27,6" Grid.Row="2"/>
+        <Label Content="Dish Image:" Margin="48,15,372,43" Grid.Row="3"/>
+        <Image Name="DishImage" Margin="151,1,224,0" Grid.Row="3"/>
+        <Button Name="UploadImage" Click="ButtonUploadImage" Margin="44,44,368,9" Content="Upload Photo" Grid.Row="3"/>
+        <Button Margin="72,9,299,11" Content="Add" Click="ButtonAddClick" Grid.Row="4"/>
+
+        <Button Content="Cancel" Click="ButtonCancelClick" Margin="380,10,31,11" Grid.Row="4" />
+
+    </Grid>
+</Window>
